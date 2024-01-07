@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - withAuth
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
