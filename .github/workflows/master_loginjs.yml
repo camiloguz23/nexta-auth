@@ -26,11 +26,11 @@ jobs:
           npm install --force
           npm run build
 
-      - name: 'Archive production artifacts'
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: .next/
+      # - name: 'Archive production artifacts'
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: dist
+      #     path: .next/
 
   deploy:
     runs-on: ubuntu-latest
