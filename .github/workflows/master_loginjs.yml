@@ -40,8 +40,12 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
       
     steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: node-app
 
-      - name: "start app"
+      - name: start app
         run: npm start
 
       - name: "Deploy to Azure Web App"
