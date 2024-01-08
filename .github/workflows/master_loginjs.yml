@@ -26,18 +26,18 @@ jobs:
           npm install --force
           npm run build
 
-deploy:
-  runs-on: ubuntu-latest
-  needs: build
-  environment:
-    name: 'Production'
-    url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    deploy:
+      runs-on: ubuntu-latest
+      needs: build
+      environment:
+        name: 'Production'
+        url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-  - name: "Deploy to Azure Web App"
-    id: deploy-to-webapp
-    uses: azure/webapps-deploy@v2
-    with:
-      app-name: "loginjs"
-      slot-name: "Production"
-      package: ./.next/standalone
-      publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C09CA972CCC84B529B5B32BB21A5B1FB }}
+      - name: "Deploy to Azure Web App"
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: "loginjs"
+          slot-name: "Production"
+          package: ./.next/standalone
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C09CA972CCC84B529B5B32BB21A5B1FB }}
