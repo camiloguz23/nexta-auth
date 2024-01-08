@@ -41,7 +41,7 @@ jobs:
       
     steps:
 
-      - name: run
+      - name: "start app"
         run: npm start
 
       - name: "Deploy to Azure Web App"
